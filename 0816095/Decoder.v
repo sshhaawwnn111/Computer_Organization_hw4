@@ -95,7 +95,7 @@ always@(*) begin
 	end
 	else if(opcode == 7'b1100011) begin //beq
 		ALUSrcA_o = 0;
-        ALUSrcB_o = 1;
+        ALUSrcB_o = 0;
 		RegWrite_o = 0;
 		Branch_o = 1;
         Jump_o = 0;
@@ -108,7 +108,7 @@ always@(*) begin
     else if(opcode == 7'b1101111) begin //jal
         ALUSrcA_o = 0;
         ALUSrcB_o = 1;
-        RegWrite_o = 0;
+        RegWrite_o = 1;
         Branch_o = 0;
         Jump_o = 1;
         WriteBack1_o = 1;
@@ -119,8 +119,8 @@ always@(*) begin
     end
     else if(opcode == 7'b1100111) begin //jalr
         ALUSrcA_o = 1;
-        ALUSrcB_o = 1;
-        RegWrite_o = 0;
+        ALUSrcB_o = 0;//don't care
+        RegWrite_o = 1;
         Branch_o = 0;
         Jump_o = 1;
         WriteBack1_o = 1;
