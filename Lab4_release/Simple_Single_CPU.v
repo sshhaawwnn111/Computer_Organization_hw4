@@ -38,6 +38,7 @@ Student ID: Lab4_release
    wire [32-1:0] ALUresult;
    wire [32-1:0] MUX_ALUSrcA_o;
    wire [32-1:0] MUX_ALUSrcB_o;
+   wire [32-1:0] PCPlus4_o;
    wire [32-1:0] Adder_PCReg_o;
    wire [32-1:0] Data_Memory_o;
    wire [32-1:0] MUX_WriteBack0_o;
