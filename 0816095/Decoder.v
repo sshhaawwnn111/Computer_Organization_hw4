@@ -129,6 +129,18 @@ always@(*) begin
         MemWrite_o = 0;//don't care
         ALUOp_o = 2'b00;//don't care
     end
+    else begin
+        ALUSrcA_o = 0;
+        ALUSrcB_o = 0;
+        RegWrite_o = 0;
+        Branch_o = 0;
+        Jump_o = 0;
+        WriteBack1_o = 0;
+        WriteBack0_o = 0;
+        MemRead_o = 0;
+        MemWrite_o = 0;
+        ALUOp_o = 2'b00;
+    end
 end
 endmodule
 
