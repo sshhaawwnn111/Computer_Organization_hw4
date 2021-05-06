@@ -1,6 +1,6 @@
 /***************************************************
-Student Name:
-Student ID: Lab4_release
+Student Name:Shawn
+Student ID:0816095
 ***************************************************/
 
    `timescale 1ns/1ps
@@ -47,6 +47,9 @@ always@(*) begin
 		else if(instr == 4'b1101) begin //sra
 			ALU_Ctrl = 4'b0101;
 		end
+	end
+	else if(ALUOp == 2'b11) begin
+		ALU_Ctrl = 4'b0010;
 	end
 end
 

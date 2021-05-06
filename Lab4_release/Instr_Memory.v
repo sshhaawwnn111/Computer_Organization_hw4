@@ -1,6 +1,6 @@
 /***************************************************
-Student Name:
-Student ID: Lab4_release
+Student Name:Shawn
+Student ID:0816095
 ***************************************************/
 
    `timescale 1ns/1ps

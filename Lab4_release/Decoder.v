@@ -1,6 +1,6 @@
 /***************************************************
-Student Name:
-Student ID: Lab4_release
+Student Name:Shawn
+Student ID:0816095
 ***************************************************/
 
    `timescale 1ns/1ps
@@ -69,6 +69,18 @@ always@(*) begin
         MemWrite_o = 0;
 		ALUOp_o = 2'b00;
 	end
+    else if(opcode == 7'b0010011) begin //addi
+		ALUSrcA_o = 0;
+        ALUSrcB_o = 1;
+		RegWrite_o = 1;
+		Branch_o = 0;
+        Jump_o = 0;
+        WriteBack1_o = 0;
+        WriteBack0_o = 0;
+        MemRead_o = 0;
+        MemWrite_o = 0;
+		ALUOp_o = 2'b11;
+    end
 	else if(opcode == 7'b0100011) begin //SW
 		ALUSrcA_o = 0;
         ALUSrcB_o = 1;
