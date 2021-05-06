@@ -14,9 +14,13 @@ Student ID:0816095
    );
 
     reg signed [32:0] temp;
+	wire signed [31:0] s_src1;
+	wire signed [31:0] s_src2;
     reg Zero_o;
     reg cout;
     assign Zero = Zero_o;
+	assign s_src1 = src1;
+	assign s_src2 = src2;
 /* Write your code HERE */
 	always@(*) begin
 
@@ -24,16 +28,16 @@ Student ID:0816095
 			result = 0;
 		end
 		else if(ALU_control == 4'b0000) begin // And
-			result = src1&src2;
+			result = s_src1&s_src2;
 			cout = 0;
 		end
 		else if(ALU_control == 4'b0001) begin // OR
-			result = src1|src2;
+			result = s_src1|s_src2;
 			cout = 0;
 		end
 		else if(ALU_control == 4'b0010) begin // addition
-			temp = src1 + src2;
-			result = src1 + src2;
+			temp = s_src1 + s_src2;
+			result = s_src1 + s_src2;
 			if(temp[32] == 1) begin
 				cout = 1;
 			end
@@ -42,8 +46,8 @@ Student ID:0816095
 			end
 		end
 		else if(ALU_control == 4'b0110) begin // Subtract
-			temp = src1 - src2;
-			result = src1 - src2;
+			temp = s_src1 - s_src2;
+			result = s_src1 - s_src2;
 			if(temp[32] == 1) begin
 				cout = 1;
 			end
@@ -52,8 +56,8 @@ Student ID:0816095
 			end
 		end
 		else if(ALU_control == 4'b0111) begin // Set les than
-			temp = src1 - src2;
-			if(src1 < src2) begin
+			temp = s_src1 - s_src2;
+			if(s_src1 < s_src2) begin
 				result = 1;
 			end
 			else begin
@@ -62,23 +66,23 @@ Student ID:0816095
 			cout = 0;
 		end
 		else if(ALU_control == 4'b1100) begin // NOR
-			result = ~(src1 | src2);
+			result = ~(s_src1 | s_src2);
 			cout = 0;
 		end
 		else if(ALU_control == 4'b1101) begin // NAND
-			result = ~(src1 & src2);
+			result = ~(s_src1 & s_src2);
 			cout = 0;
 		end
 		else if(ALU_control == 4'b0011) begin // XOR ALU_control == 3
-			result = src1 ^ src2;
+			result = s_src1 ^ s_src2;
 			cout = 0;
 		end
 		else if(ALU_control == 4'b0100) begin // Shift Left Logical ALU_control == 4
-			result = src1 << src2;
+			result = s_src1 << s_src2;
 			cout = 0;
 		end
 		else if(ALU_control == 4'b0101) begin // Shift Right Arithmetic ALU_control == 5
-			result = src1 >>> src2;
+			result = s_src1 >>> s_src2;
 			cout = 0;
 		end
 

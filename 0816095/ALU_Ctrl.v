@@ -13,7 +13,7 @@ Student ID:0816095
    wire [2:0] func3;
    assign func3 = instr[2:0];
    /* Write your code HERE */
-   reg ALU_Ctrl;
+   reg [3:0] ALU_Ctrl;
    assign ALU_Ctrl_o = ALU_Ctrl;
 always@(*) begin
 	if(ALUOp == 2'b00) begin //sw, lw
@@ -22,7 +22,7 @@ always@(*) begin
 	else if(ALUOp == 2'b01) begin //beq
 		ALU_Ctrl = 4'b0110; //subtraction
 	end
-	else if(ALUOp == 2'b10) begin //arithmetic
+	else if(ALUOp == 2'b10) begin //R-type
 		if(instr == 4'b0000) begin //addition
 			ALU_Ctrl = 4'b0010;
 		end
